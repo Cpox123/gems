@@ -1,0 +1,56 @@
+[
+  {
+    "id": "blue-sapphire",
+    "name": "Blue Sapphire",
+    "sinhala": "නිල් මැණික",
+    "color": "blue",
+    "detail": "Oval cut • Ceylon",
+    "price": "Ask for price",
+    "image": "https://images.pexels.com/photos/14058109/pexels-photo-14058109.jpeg?auto=compress&cs=tinysrgb&w=1000"
+  },
+  {
+    "id": "royal-blue",
+    "name": "Royal Blue Sapphire",
+    "sinhala": "රාජකීය නිල් මැණික",
+    "color": "blue",
+    "detail": "Polished • Ceylon",
+    "price": "Ask for price",
+    "image": "https://images.pexels.com/photos/17486900/pexels-photo-17486900.jpeg?auto=compress&cs=tinysrgb&w=1200"
+  },
+  {
+    "id": "ruby",
+    "name": "Ruby",
+    "sinhala": "රතු මැණික",
+    "color": "red",
+    "detail": "Round cut • Natural",
+    "price": "Ask for price",
+    "image": "https://images.pexels.com/photos/16975999/pexels-photo-16975999.jpeg?auto=compress&cs=tinysrgb&w=1200"
+  },
+  {
+    "id": "green-stone",
+    "name": "Green Gem",
+    "sinhala": "කොළ මැණික",
+    "color": "green",
+    "detail": "Oval cut • Natural",
+    "price": "Ask for price",
+    "image": "https://images.pexels.com/photos/4040646/pexels-photo-4040646.jpeg?auto=compress&cs=tinysrgb&w=1200"
+  },
+  {
+    "id": "yellow-sapphire",
+    "name": "Yellow Sapphire",
+    "sinhala": "කහ පුෂ්පරාග",
+    "color": "yellow",
+    "detail": "Polished • Ceylon",
+    "price": "Ask for price",
+    "image": "https://images.pexels.com/photos/6468513/pexels-photo-6468513.jpeg?auto=compress&cs=tinysrgb&w=1200"
+  },
+  {
+    "id": "golden-gem",
+    "name": "Golden Gem",
+    "sinhala": "රන් පැහැ මැණික",
+    "color": "yellow",
+    "detail": "Cushion cut • Natural",
+    "price": "Ask for price",
+    "image": "https://images.pexels.com/photos/8581107/pexels-photo-8581107.jpeg?auto=compress&cs=tinysrgb&w=1200"
+  }
+]

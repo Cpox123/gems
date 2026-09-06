@@ -1,0 +1,1 @@
+Put your own gem photos in this folder later, then point the image fields in content/gems/index.json to paths like images/gems/blue-sapphire.jpg
