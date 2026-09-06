@@ -1,4 +1,0 @@
-# Placeholder CMS configuration.
-# A real GitHub-backed admin login needs authentication setup before use.
-site_url: https://cpox123.github.io/gems/
-content_file: ../content/gems/index.json
