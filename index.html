@@ -570,10 +570,41 @@
       font-size:25px;
     }
 
+
     .social-section {
-      background:var(--cream-2);
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 20%, rgba(202,165,94,.16), transparent 28%),
+        radial-gradient(circle at 85% 70%, rgba(65,111,148,.18), transparent 30%),
+        linear-gradient(135deg,#061827,#0a2638 60%,#0b2f42);
+      color: white;
+    }
+    .social-section::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(120deg,rgba(255,255,255,.015),transparent 30%),
+        repeating-linear-gradient(135deg,rgba(255,255,255,.012) 0 1px,transparent 1px 18px);
+      pointer-events:none;
+    }
+    .social-section .section-head {
+      position:relative;
+      z-index:1;
+    }
+    .social-section .section-head h2 {
+      color:white;
+    }
+    .social-section .section-head>p {
+      color:#aebdc8;
+    }
+    .social-section .eyebrow.dark {
+      color:var(--gold-2);
     }
     .social-grid {
+      position:relative;
+      z-index:1;
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:16px;
@@ -581,52 +612,90 @@
     .social-card {
       position:relative;
       overflow:hidden;
-      min-height:154px;
-      padding:24px;
-      border:1px solid var(--line);
-      border-radius:22px;
-      background:#fff;
-      box-shadow:0 12px 34px rgba(29,36,42,.05);
-      transition:.25s ease;
+      min-height:0;
+      padding:15px 16px;
+      border:1px solid rgba(255,255,255,.11);
+      border-radius:18px;
+      background:rgba(255,255,255,.055);
+      backdrop-filter:blur(12px);
+      box-shadow:0 14px 34px rgba(0,0,0,.12);
+      transition:transform .25s ease, border-color .25s ease, background .25s ease, box-shadow .25s ease;
+      color:white;
+      display:grid;
+      grid-template-columns:44px minmax(0,1fr) 24px;
+      grid-template-rows:auto auto auto;
+      column-gap:13px;
+      align-items:center;
     }
+    .social-card::before {
+      content:"";
+      position:absolute;
+      width:120px;
+      height:120px;
+      right:-38px;
+      bottom:-48px;
+      border-radius:50%;
+      filter:blur(10px);
+      opacity:.16;
+      transition:transform .3s ease, opacity .3s ease;
+    }
+    .social-card.youtube::before { background:#ff0033; }
+    .social-card.tiktok::before { background:linear-gradient(135deg,#25f4ee,#fe2c55); }
+    .social-card.whatsapp::before { background:#25d366; }
     .social-card:hover {
-      transform:translateY(-4px);
-      box-shadow:0 20px 44px rgba(29,36,42,.09);
-      border-color:#d9c39b;
+      transform:translateY(-5px);
+      background:rgba(255,255,255,.075);
+      border-color:rgba(234,208,154,.30);
+      box-shadow:0 24px 55px rgba(0,0,0,.20);
+    }
+    .social-card:hover::before {
+      transform:scale(1.18);
+      opacity:.24;
     }
     .social-badge {
-      width:42px;
-      height:42px;
+      width:44px;
+      height:44px;
       display:grid;
       place-items:center;
       border-radius:14px;
-      background:var(--navy);
       color:white;
       font-size:11px;
       font-weight:900;
       letter-spacing:.03em;
+      box-shadow:0 10px 24px rgba(0,0,0,.16);
+      grid-column:1;
+      grid-row:1 / 4;
+      align-self:center;
     }
     .social-card h3 {
-      margin:18px 0 3px;
+      margin:0 0 1px;
       font-family:"Playfair Display",serif;
-      font-size:22px;
-      color:var(--navy);
+      font-size:20px;
+      line-height:1.05;
+      color:white;
+      grid-column:2;
+      grid-row:1;
     }
     .social-card p {
       margin:0;
-      color:var(--muted);
-      font-size:11px;
+      color:#9fb0bc;
+      font-size:9px;
+      grid-column:2;
+      grid-row:2;
     }
     .social-card::after {
       content:"↗";
       position:absolute;
-      top:22px;
-      right:22px;
-      color:#a17b37;
-      font-size:18px;
+      top:50%;
+      right:15px;
+      transform:translateY(-50%);
+      color:var(--gold-2);
+      font-size:16px;
       transition:transform .22s ease;
     }
-    .social-card:hover::after { transform:translate(3px,-3px) }
+    .social-card:hover::after {
+      transform:translate(3px,-54%);
+    }
 
     .contact-section {
       background:#fff;
@@ -934,6 +1003,94 @@
       50% { box-shadow:0 12px 30px rgba(31,156,97,.22),0 0 0 8px rgba(31,156,97,.08) }
     }
 
+
+    .brand-icon {
+      width: 22px;
+      height: 22px;
+      display: block;
+      flex: 0 0 auto;
+    }
+    .social-badge .brand-icon {
+      width: 24px;
+      height: 24px;
+    }
+    .social-card.youtube .social-badge {
+      background: linear-gradient(145deg,#ff0033,#c9002c);
+      color: #fff;
+    }
+    .social-card.tiktok .social-badge {
+      background: linear-gradient(145deg,#111,#242424);
+      color: #fff;
+      box-shadow: 3px 3px 0 rgba(37,244,238,.22), -3px -3px 0 rgba(254,44,85,.18);
+    }
+    .social-card.whatsapp .social-badge {
+      background: linear-gradient(145deg,#25d366,#159b48);
+      color: #fff;
+    }
+    .social-card.youtube:hover {
+      border-color: rgba(255,0,51,.34);
+    }
+    .social-card.tiktok:hover {
+      border-color: rgba(37,244,238,.26);
+    }
+    .social-card.whatsapp:hover {
+      border-color: rgba(37,211,102,.34);
+    }
+    .mini-wa .brand-icon {
+      width: 17px;
+      height: 17px;
+    }
+    .footer-socials a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .footer-socials .brand-icon {
+      width: 15px;
+      height: 15px;
+    }
+    .footer-socials .youtube-link { color: #ff6a7e; }
+    .footer-socials .tiktok-link { color: #f7f7f7; }
+    .footer-socials .whatsapp-link { color: #58df8d; }
+    .float-social .brand-icon {
+      width: 21px;
+      height: 21px;
+    }
+    .float-social.yt {
+      background: #fff;
+      color: #ff0033;
+    }
+    .float-social.tt {
+      background: #101010;
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(6,24,39,.18), 2px 2px 0 rgba(37,244,238,.25), -2px -2px 0 rgba(254,44,85,.18);
+    }
+    .float-social.wa {
+      background: #25d366;
+      color: #fff;
+    }
+
+    .social-sub {
+      display:block;
+      margin-top:3px;
+      color:#d9e2e8;
+      font-size:8px;
+      font-weight:700;
+      letter-spacing:.02em;
+      grid-column:2;
+      grid-row:3;
+    }
+
+    .social-logo-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 14px;
+      color: #8f7a55;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
     @media (max-width:960px) {
       .gem-grid { grid-template-columns:repeat(2,1fr) }
       .hero-grid { grid-template-columns:1fr; gap:40px; padding:72px 0 }
@@ -942,6 +1099,9 @@
       .floating-card { left:18px }
       .contact-box { grid-template-columns:1fr; gap:34px }
       .social-grid { grid-template-columns:1fr }
+      .social-card { min-height:0; padding:14px 15px }
+      .social-card h3 { font-size:19px }
+      .social-section { padding-top:52px; padding-bottom:52px }
     }
 
     @media (max-width:760px) {
@@ -1101,7 +1261,7 @@
               <div class="gem-price">Rs. 85,000</div>
               <div class="card-actions">
                 <button class="text-link open-detail" type="button">විස්තර බලන්න →</button>
-                <a class="mini-wa" href="https://wa.me/94714023638?text=Hello%20Pabasara%20Gems%2C%20I%20am%20interested%20in%20the%20Blue%20Sapphire." target="_blank" rel="noopener" aria-label="Ask about Blue Sapphire on WhatsApp">WA</a>
+                <a class="mini-wa" href="https://wa.me/94714023638?text=Hello%20Pabasara%20Gems%2C%20I%20am%20interested%20in%20the%20Blue%20Sapphire." target="_blank" rel="noopener" aria-label="Ask about Blue Sapphire on WhatsApp"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a>
               </div>
             </div>
           </article>
@@ -1126,7 +1286,7 @@
               <div class="gem-price">Rs. 72,000</div>
               <div class="card-actions">
                 <button class="text-link open-detail" type="button">විස්තර බලන්න →</button>
-                <a class="mini-wa" href="https://wa.me/94714023638?text=Hello%20Pabasara%20Gems%2C%20I%20am%20interested%20in%20the%20Ruby." target="_blank" rel="noopener" aria-label="Ask about Ruby on WhatsApp">WA</a>
+                <a class="mini-wa" href="https://wa.me/94714023638?text=Hello%20Pabasara%20Gems%2C%20I%20am%20interested%20in%20the%20Ruby." target="_blank" rel="noopener" aria-label="Ask about Ruby on WhatsApp"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a>
               </div>
             </div>
           </article>
@@ -1151,7 +1311,7 @@
               <div class="gem-price">Rs. 68,000</div>
               <div class="card-actions">
                 <button class="text-link open-detail" type="button">විස්තර බලන්න →</button>
-                <a class="mini-wa" href="https://wa.me/94714023638?text=Hello%20Pabasara%20Gems%2C%20I%20am%20interested%20in%20the%20Emerald." target="_blank" rel="noopener" aria-label="Ask about Emerald on WhatsApp">WA</a>
+                <a class="mini-wa" href="https://wa.me/94714023638?text=Hello%20Pabasara%20Gems%2C%20I%20am%20interested%20in%20the%20Emerald." target="_blank" rel="noopener" aria-label="Ask about Emerald on WhatsApp"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a>
               </div>
             </div>
           </article>
@@ -1176,7 +1336,7 @@
               <div class="gem-price">Rs. 55,000</div>
               <div class="card-actions">
                 <button class="text-link open-detail" type="button">විස්තර බලන්න →</button>
-                <a class="mini-wa" href="https://wa.me/94714023638?text=Hello%20Pabasara%20Gems%2C%20I%20am%20interested%20in%20the%20Yellow%20Sapphire." target="_blank" rel="noopener" aria-label="Ask about Yellow Sapphire on WhatsApp">WA</a>
+                <a class="mini-wa" href="https://wa.me/94714023638?text=Hello%20Pabasara%20Gems%2C%20I%20am%20interested%20in%20the%20Yellow%20Sapphire." target="_blank" rel="noopener" aria-label="Ask about Yellow Sapphire on WhatsApp"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a>
               </div>
             </div>
           </article>
@@ -1242,22 +1402,22 @@
         </div>
 
         <div class="social-grid">
-          <a class="social-card reveal" href="https://www.youtube.com/@Pabasara_gems" target="_blank" rel="noopener">
-            <span class="social-badge">YT</span>
+          <a class="social-card youtube reveal" href="https://www.youtube.com/@Pabasara_gems" target="_blank" rel="noopener">
+            <span class="social-badge"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z"/></svg></span>
             <h3>YouTube</h3>
-            <p>@Pabasara_gems</p>
+            <p>@Pabasara_gems</p><span class="social-sub">Videos • Gem updates</span>
           </a>
 
-          <a class="social-card reveal" href="https://www.tiktok.com/@pabasara_gems/" target="_blank" rel="noopener">
-            <span class="social-badge">TT</span>
+          <a class="social-card tiktok reveal" href="https://www.tiktok.com/@pabasara_gems/" target="_blank" rel="noopener">
+            <span class="social-badge"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.1 2.7 1.6 4.24 1.77v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.72-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></span>
             <h3>TikTok</h3>
-            <p>@pabasara_gems</p>
+            <p>@pabasara_gems</p><span class="social-sub">Short clips • New arrivals</span>
           </a>
 
-          <a class="social-card reveal" href="https://wa.me/94714023638?text=Hello%20Pabasara%20Gems" target="_blank" rel="noopener">
-            <span class="social-badge">WA</span>
+          <a class="social-card whatsapp reveal" href="https://wa.me/94714023638?text=Hello%20Pabasara%20Gems" target="_blank" rel="noopener">
+            <span class="social-badge"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></span>
             <h3>WhatsApp</h3>
-            <p>071 402 3638</p>
+            <p>071 402 3638</p><span class="social-sub">Direct enquiries</span>
           </a>
         </div>
       </div>
@@ -1270,6 +1430,12 @@
           <h2>Find Your Perfect Gem</h2>
           <p>ඔබ කැමති මැණික තෝරලා form එක යවන්න. Send Enquiry click කළාම message එක Pabasara Gems WhatsApp එකට ready වෙයි.</p>
           <a class="contact-number" href="https://wa.me/94714023638?text=Hello%20Pabasara%20Gems" target="_blank" rel="noopener">WhatsApp • 071 402 3638</a>
+          <div class="social-logo-row">
+            <span>Follow:</span>
+            <a href="https://www.youtube.com/@Pabasara_gems" target="_blank" rel="noopener" aria-label="YouTube" style="color:#ff0033"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z"/></svg></a>
+            <a href="https://www.tiktok.com/@pabasara_gems/" target="_blank" rel="noopener" aria-label="TikTok" style="color:#111"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.1 2.7 1.6 4.24 1.77v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.72-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+            <a href="https://wa.me/94714023638?text=Hello%20Pabasara%20Gems" target="_blank" rel="noopener" aria-label="WhatsApp" style="color:#25d366"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a>
+          </div>
         </div>
 
         <form class="contact-form" id="contactForm">
@@ -1311,9 +1477,9 @@
       </div>
 
       <div class="footer-socials">
-        <a href="https://www.youtube.com/@Pabasara_gems" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.tiktok.com/@pabasara_gems/" target="_blank" rel="noopener">TikTok</a>
-        <a href="https://wa.me/94714023638?text=Hello%20Pabasara%20Gems" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="youtube-link" href="https://www.youtube.com/@Pabasara_gems" target="_blank" rel="noopener"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z"/></svg><span>YouTube</span></a>
+        <a class="tiktok-link" href="https://www.tiktok.com/@pabasara_gems/" target="_blank" rel="noopener"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.1 2.7 1.6 4.24 1.77v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.72-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><span>TikTok</span></a>
+        <a class="whatsapp-link" href="https://wa.me/94714023638?text=Hello%20Pabasara%20Gems" target="_blank" rel="noopener"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg><span>WhatsApp</span></a>
       </div>
 
       <p class="footer-copy">© 2026 Pabasara Gems</p>
@@ -1321,9 +1487,9 @@
   </footer>
 
   <div class="floating-socials" aria-label="Social links">
-    <a class="float-social yt" href="https://www.youtube.com/@Pabasara_gems" target="_blank" rel="noopener" aria-label="Pabasara Gems YouTube">YT</a>
-    <a class="float-social tt" href="https://www.tiktok.com/@pabasara_gems/" target="_blank" rel="noopener" aria-label="Pabasara Gems TikTok">TT</a>
-    <a class="float-social wa" href="https://wa.me/94714023638?text=Hello%20Pabasara%20Gems" target="_blank" rel="noopener" aria-label="Pabasara Gems WhatsApp">WA</a>
+    <a class="float-social yt" href="https://www.youtube.com/@Pabasara_gems" target="_blank" rel="noopener" aria-label="Pabasara Gems YouTube"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z"/></svg></a>
+    <a class="float-social tt" href="https://www.tiktok.com/@pabasara_gems/" target="_blank" rel="noopener" aria-label="Pabasara Gems TikTok"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.1 2.7 1.6 4.24 1.77v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.72-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+    <a class="float-social wa" href="https://wa.me/94714023638?text=Hello%20Pabasara%20Gems" target="_blank" rel="noopener" aria-label="Pabasara Gems WhatsApp"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a>
   </div>
 
   <div class="modal" id="gemModal" role="dialog" aria-modal="true" aria-labelledby="modalName">
