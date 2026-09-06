@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="si">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071321">
+  <meta name="description" content="Pabasara Gems - simple gemstone collection and jewellery enquiry website.">
+  <title>Pabasara Gems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+Sinhala:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Pabasara Gems home">
+        <span class="brand-icon">◇</span>
+        <span class="brand-copy">
+          <strong>Pabasara Gems</strong>
+          <small>CEYLON GEMSTONES</small>
+        </span>
+      </a>
+
+      <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#gems">Gems</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="#contact">WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Natural Gems • Sri Lanka</p>
+          <h1>Discover the Beauty of <span>Precious Gems</span></h1>
+          <p class="hero-text">ඔබේ මුදුවට, මාලයට හෝ විශේෂ තෑග්ගකට ගැලපෙන අගනා මැණිකක් සරලව තෝරන්න.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#gems">Explore Gems</a>
+            <a class="btn btn-outline" href="#contact">විමසන්න</a>
+          </div>
+          <div class="hero-points">
+            <span>✓ Natural Gemstones</span>
+            <span>✓ Carefully Selected</span>
+            <span>✓ Sri Lanka</span>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <img src="images/hero-gems.webp" alt="Colourful polished gemstones" width="1600" height="900">
+          <div class="floating-card">
+            <small>FEATURED COLLECTION</small>
+            <strong>Ceylon Gemstones</strong>
+            <span>Polished & ready for jewellery</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gems-section" id="gems">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow dark">Our Collection</p>
+            <h2>තෝරාගත් මැණික්</h2>
+          </div>
+          <p>වර්ණය තෝරලා collection එක බලන්න. Simple filters විතරයි.</p>
+        </div>
+
+        <div class="filters" aria-label="Filter gemstones by colour">
+          <button class="filter-btn active" type="button" data-filter="all">All</button>
+          <button class="filter-btn" type="button" data-filter="blue"><span class="dot blue"></span>Blue</button>
+          <button class="filter-btn" type="button" data-filter="red"><span class="dot red"></span>Red</button>
+          <button class="filter-btn" type="button" data-filter="green"><span class="dot green"></span>Green</button>
+          <button class="filter-btn" type="button" data-filter="yellow"><span class="dot yellow"></span>Yellow</button>
+        </div>
+
+        <div class="gem-grid">
+          <article class="gem-card" data-color="blue">
+            <div class="gem-image"><img src="images/blue-sapphire.webp" alt="Blue sapphire" loading="lazy"></div>
+            <div class="gem-info">
+              <span class="gem-kicker">නිල් මැණික</span>
+              <h3>Blue Sapphire</h3>
+              <p>Oval cut • Polished</p>
+              <div class="gem-price">Rs. 85,000</div>
+              <button class="text-link enquire-btn" type="button" data-gem="Blue Sapphire">විමසන්න →</button>
+            </div>
+          </article>
+
+          <article class="gem-card" data-color="red">
+            <div class="gem-image"><img src="images/ruby.webp" alt="Ruby gemstone" loading="lazy"></div>
+            <div class="gem-info">
+              <span class="gem-kicker">රතු මැණික</span>
+              <h3>Ruby</h3>
+              <p>Oval cut • Polished</p>
+              <div class="gem-price">Rs. 72,000</div>
+              <button class="text-link enquire-btn" type="button" data-gem="Ruby">විමසන්න →</button>
+            </div>
+          </article>
+
+          <article class="gem-card" data-color="green">
+            <div class="gem-image"><img src="images/emerald.webp" alt="Green emerald gemstone" loading="lazy"></div>
+            <div class="gem-info">
+              <span class="gem-kicker">කොළ මැණික</span>
+              <h3>Emerald</h3>
+              <p>Emerald cut • Polished</p>
+              <div class="gem-price">Rs. 68,000</div>
+              <button class="text-link enquire-btn" type="button" data-gem="Emerald">විමසන්න →</button>
+            </div>
+          </article>
+
+          <article class="gem-card" data-color="yellow">
+            <div class="gem-image dark-image"><img src="images/yellow-sapphire.webp" alt="Yellow sapphire gemstone" loading="lazy"></div>
+            <div class="gem-info">
+              <span class="gem-kicker">කහ පුෂ්පරාග</span>
+              <h3>Yellow Sapphire</h3>
+              <p>Oval cut • Polished</p>
+              <div class="gem-price">Rs. 55,000</div>
+              <button class="text-link enquire-btn" type="button" data-gem="Yellow Sapphire">විමසන්න →</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-strip" id="about">
+      <div class="container about-grid">
+        <div class="about-item"><span>◇</span><div><strong>Quality Selection</strong><small>Carefully chosen stones</small></div></div>
+        <div class="about-item"><span>✦</span><div><strong>Polished Finish</strong><small>Ready for jewellery ideas</small></div></div>
+        <div class="about-item"><span>⌂</span><div><strong>Sri Lanka</strong><small>Local gem collection</small></div></div>
+      </div>
+    </section>
+
+    <section class="section jewellery-section">
+      <div class="container">
+        <div class="section-head light-head">
+          <div>
+            <p class="eyebrow">Jewellery Inspiration</p>
+            <h2>මුදු වලට මැණික්</h2>
+          </div>
+          <p>මැණික jewellery එකකට set කළාම පෙනෙන sample ideas.</p>
+        </div>
+
+        <div class="jewellery-grid">
+          <article class="jewellery-card">
+            <img src="images/blue-sapphire-ring.webp" alt="Blue sapphire ring example" loading="lazy">
+            <div class="overlay-copy">
+              <small>RING INSPIRATION</small>
+              <strong>Blue Sapphire Setting</strong>
+            </div>
+          </article>
+          <article class="jewellery-card">
+            <img src="images/ruby-ring.webp" alt="Ruby gold ring example" loading="lazy">
+            <div class="overlay-copy">
+              <small>RING INSPIRATION</small>
+              <strong>Ruby Gold Setting</strong>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-box">
+        <div class="contact-copy">
+          <p class="eyebrow">Gem Enquiry</p>
+          <h2>Find Your Perfect Gem</h2>
+          <p>ඔබ කැමති මැණික තෝරලා විමසීමක් යවන්න. Final site එකේ මේක ඔබේ WhatsApp number එකට connect කරන්න පුළුවන්.</p>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <div class="field-row">
+            <label>නම<input type="text" name="name" placeholder="ඔබේ නම" required></label>
+            <label>WhatsApp<input type="tel" name="phone" placeholder="07X XXX XXXX" required></label>
+          </div>
+          <label>මැණික
+            <select id="gemSelect" name="gem" required>
+              <option value="">මැණිකක් තෝරන්න</option>
+              <option>Blue Sapphire</option>
+              <option>Ruby</option>
+              <option>Emerald</option>
+              <option>Yellow Sapphire</option>
+            </select>
+          </label>
+          <label>Message<textarea name="message" rows="4" placeholder="ඔබට අවශ්‍ය දේ කෙටියෙන් ලියන්න"></textarea></label>
+          <button class="btn btn-dark" type="submit">Send Enquiry</button>
+          <p class="form-note" id="formNote"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-row">
+      <div>
+        <strong>Pabasara Gems</strong>
+        <span>Precious gems, simply presented.</span>
+      </div>
+      <p>© 2026 Pabasara Gems</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
